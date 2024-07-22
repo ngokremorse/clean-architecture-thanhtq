@@ -1,9 +1,21 @@
 package com.thanhtq.domain.product;
 
-public interface Product {
-    String getProductId();
-    boolean priceIsValid();
-    String getTitle();
-    Money getPrice();
-    String getSku();
+import lombok.Getter;
+
+import java.util.UUID;
+
+@Getter
+public class Product {
+    private final String productId;
+    private final String title;
+    private final String sku;
+    private final Money price;
+
+    public Product(String title, String sku, Money price) {
+        this.productId = UUID.randomUUID().toString();
+        this.title = title;
+        this.sku = sku;
+        this.price = price;
+    }
+
 }
