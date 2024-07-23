@@ -11,6 +11,8 @@ import org.springframework.data.elasticsearch.annotations.Dynamic;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.time.ZonedDateTime;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 //@Document(dynamic = Dynamic.TRUE, indexName = "#{@esConfig.getProductIndex()}")
 @Document(dynamic = Dynamic.TRUE, indexName = "product-index")
@@ -43,4 +45,10 @@ public class ProductDocument {
             type = FieldType.Object
     )
     private MoneyObject price;
+
+    @Field(
+            name = "createDate",
+            type = FieldType.Date
+    )
+    private ZonedDateTime createDate;
 }
