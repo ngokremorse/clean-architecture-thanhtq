@@ -1,10 +1,8 @@
 package com.thanhtq.external.api.controller;
 
-import com.thanhtq.core.usecase.model.ProductModel;
-import com.thanhtq.core.usecase.service.ICreateProductUseCase;
-import com.thanhtq.external.api.dto.ProductCreateCommand;
+import com.thanhtq.core.domain.product.command.IProductCommandHandler;
+import com.thanhtq.external.api.command.ProductCreateCommand;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/product")
 @RequiredArgsConstructor
 public class ProductController {
-
-    private final ICreateProductUseCase iCreateProductUseCase;
-
+    private final IProductCommandHandler productCommandHandler;
+    
     @PostMapping("/create")
     public String createProduct(@RequestBody ProductCreateCommand productCreateCommand) {
-        ProductModel productModel = new ProductModel();
-        BeanUtils.copyProperties(productCreateCommand, productModel);
-        iCreateProductUseCase.createProduct(productModel);
+        productCommandHandler.on(productCreateCommand);
         return "Create product success!";
     }
 }

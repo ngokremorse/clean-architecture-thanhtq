@@ -1,4 +1,4 @@
-package com.thanhtq.external.api.dto;
+package com.thanhtq.external.api.command;
 
 import com.thanhtq.core.domain.core.Command;
 import com.thanhtq.core.domain.product.Money;
