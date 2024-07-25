@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class ProductEvent implements Event {
 
