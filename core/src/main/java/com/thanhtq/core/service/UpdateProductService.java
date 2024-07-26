@@ -1,5 +1,6 @@
 package com.thanhtq.core.service;
 
+import com.thanhtq.core.domain.product.event.ProductEvent;
 import com.thanhtq.core.domain.product.repository.IProductRepository;
 import com.thanhtq.core.domain.product.service.ICreateProductService;
 import com.thanhtq.core.domain.product.service.IUpdateProductService;
@@ -14,5 +15,10 @@ public class UpdateProductService implements IUpdateProductService {
     @Override
     public boolean exits(String productId) {
         return productRepository.exits(productId);
+    }
+
+    @Override
+    public void updateProductService(ProductEvent productEvent) {
+
     }
 }
