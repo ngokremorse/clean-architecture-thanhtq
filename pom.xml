@@ -26,6 +26,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+         <start-class>com.thanhtq.ecommerce.CleanArchitectureApplication</start-class>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -57,50 +58,32 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
+  <build>
+         <plugins>
+                  <plugin>
+                           <groupId>org.springframework.boot</groupId>
+                           <artifactId>spring-boot-maven-plugin</artifactId>
+                           <configuration>
+                                    <mainClass>${start-class}</mainClass>
+                                    <layout>JAR</layout>
+                           </configuration>
+                           <executions>
+                                    <execution>
+                                             <goals>
+                                                      <goal>repackage</goal>
+                                             </goals>
+                                    </execution>
+                           </executions>
+                  </plugin>
+                  <plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+                           <artifactId>maven-compiler-plugin</artifactId>
+                           <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <source>16</source>
+                                    <target>16</target>
+                           </configuration>
+                  </plugin>
         </plugins>
-    </build>
-
+</build>
 </project>
